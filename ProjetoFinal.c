@@ -5,14 +5,34 @@
 #define quantidadeDEQuartos 30
 
 typedef struct {
-    char hospede[30];
+    char hospede[30];  // Corrigindo a declaraÃ§Ã£o da struct
 } hotel;
 
 void inicializarHotel(hotel nomedoHotel[], int tamanho) {
     for (int i = 0; i < tamanho; i++) {
-        nomedoHotel[i].hospede[0] = '\0';
+        nomedoHotel[i].hospede[0] = '\0';  // Inicializando cada quarto
     }
 }
+void removerHospede(hotel nomedoHotel[]) {
+    int quarto;
+    printf("Digite o nÃºmero do quarto a ser liberado: ");
+    scanf("%d", &quarto);
+
+    if (quarto >= 1 && quarto <= quantidadeDEQuartos) {
+        if (nomedoHotel[quarto - 1].hospede[0] != '\0') {
+            nomedoHotel[quarto - 1].hospede[0] = '\0';
+            printf("HÃ³spede removido com sucesso!\n");
+        } else {
+            printf("Quarto vazio. Nenhum hÃ³spede para remover.\n");
+        }
+    } else {
+        printf("NÃºmero de quarto invÃ¡lido.\n");
+    }
+    system("pause");
+    system("cls");
+}
+
+
 int main() {
     setlocale(LC_ALL, "Portuguese");
     hotel transilvania[30];
@@ -22,46 +42,44 @@ int main() {
     char inserirMaisHospedes;
     do {
         printf("\n===== MENU =====\n");
-        printf("1. Inserir novo hóspede\n");
-        printf("2. Listar hóspedes\n");
-        printf("3. Buscar hóspede\n");
-        printf("4. Editar hóspede\n");
-        printf("5. Remover hóspede\n");
-        printf("6. Mostrar quartos disponíveis\n");
-        printf("7. Salvar em arquivo Lista de Hóspedes\n");
+        printf("1. Inserir novo hÃ³spede\n");
+        printf("2. Listar hÃ³spedes\n");
+        printf("3. Buscar hÃ³spede\n");
+        printf("4. Editar hÃ³spede\n");
+        printf("5. Remover hÃ³spede\n");
+        printf("6. Mostrar quartos disponÃ­veis\n");
+        printf("7. Salvar em arquivo Lista de HÃ³spedes\n");
         printf("0. Sair\n");
-        printf("Digite a opção desejada: ");
+        printf("Digite a opÃ§Ã£o desejada: ");
         scanf("%d", &opcao);
         system("cls");
 
         switch (opcao) {
-            case 1:
-                // Parte Victor
+            //parte victor
             case 2:
             //parte eduardo
-                break;
             case 3:
-            //parte adenilson
-                break;
+            // parte adenilson
             case 4:
             // parte francisco
                 break;
             case 5:
-            // parte Kelvin
+                system("cls");
+                removerHospede(transilvania);
                 break;
             case 6:
             // parte yan
                 break;
             case 7:
                 system("cls");
-                printf("opção ainda nao disponivel\n");
+                printf("opÃ§Ã£o ainda nao disponivel\n");
                 break;
             case 0:
-                printf("Saindo do programa. Até logo!\n");
+                printf("Saindo do programa. AtÃ© logo!\n");
                 system("pause");
                 break;
             default:
-                printf("Opção inválida. Tente novamente.\n");
+                printf("OpÃ§Ã£o invÃ¡lida. Tente novamente.\n");
         }
 
     } while (opcao != 0);
