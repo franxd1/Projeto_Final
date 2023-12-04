@@ -53,6 +53,25 @@ void buscarHospede(hotel nomedoHotel[]) {
     system("pause");
     system("cls");
 }
+void editarHospede(hotel nomedoHotel[]) {
+    int numeroDoQuarto;
+    printf("Digite o número do quarto a ser editado: ");
+    scanf("%d", &numeroDoQuarto);
+
+    if (numeroDoQuarto >= 1 && numeroDoQuarto <= quantidadeDEQuartos) {
+        if (nomedoHotel[numeroDoQuarto - 1].hospede[0] != '\0') {
+            printf("Digite o novo nome do hóspede: ");
+            scanf("%s", nomedoHotel[numeroDoQuarto - 1].hospede);
+            printf("Hóspede editado com sucesso!\n");
+        } else {
+            printf("Quarto vazio. Nenhum hóspede para editar.\n");
+        }
+    } else {
+        printf("Número de quarto invúlido.\n");
+    }
+    system("pause");
+    system("cls");
+}
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -98,7 +117,8 @@ int main() {
                 buscarHospede(transilvania);
                 break;
             case 4:
-            // parte francisco
+                system("cls");
+                editarHospede(transilvania);
                 break;
             case 5:
             // parte Kelvin
