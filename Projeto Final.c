@@ -90,25 +90,28 @@ void removerHospede(hotel nomedoHotel[]) {
     system("pause");
     system("cls");
 }
-void removerHospede(hotel nomedoHotel[]) {
-    int quarto;
-    printf("Digite o número do quarto a ser liberado: ");
-    scanf("%d", &quarto);
-
-    if (quarto >= 1 && quarto <= quantidadeDEQuartos) {
-        if (nomedoHotel[quarto - 1].hospede[0] != '\0') {
-            nomedoHotel[quarto - 1].hospede[0] = '\0';
-            printf("Hóspede removido com sucesso!\n");
-        } else {
-            printf("Quarto vazio. Nenhum hopede para remover.\n");
+void quartosDisponiveis(hotel nomedoHotel[]) {
+    printf("Quartos Disponíveis: \n");
+    for (int i = 0; i < quantidadeDEQuartos; i++) {
+        if(i<9){
+            if (nomedoHotel[i].hospede[0] == '\0') {
+            printf("QUARTO 0%d: ( )\n", i + 1);
+        }else{
+            printf("QUARTO 0%d: (x)\n", i + 1);
         }
-    } else {
-        printf("Número de quarto inválido.\n");
+        }else{
+            if (nomedoHotel[i].hospede[0] == '\0') {
+            printf("QUARTO %d: ( )\n", i + 1);
+        }else{
+            printf("QUARTO %d: (x)\n", i + 1);
+        }
+        }
+        
     }
+    printf("\n");
     system("pause");
     system("cls");
 }
-
 int main() {
     setlocale(LC_ALL, "Portuguese");
     hotel transilvania[30];
