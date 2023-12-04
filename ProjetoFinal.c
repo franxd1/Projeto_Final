@@ -5,7 +5,7 @@
 #define quantidadeDEQuartos 30
 
 typedef struct {
-    char hospede[30];  // Corrigindo a declaraÃ§Ã£o da struct
+    char hospede[30];  // Corrigindo a declaração da struct
 } hotel;
 
 void inicializarHotel(hotel nomedoHotel[], int tamanho) {
@@ -15,18 +15,18 @@ void inicializarHotel(hotel nomedoHotel[], int tamanho) {
 }
 void removerHospede(hotel nomedoHotel[]) {
     int quarto;
-    printf("Digite o nÃºmero do quarto a ser liberado: ");
+    printf("Digite o número do quarto a ser liberado: ");
     scanf("%d", &quarto);
 
     if (quarto >= 1 && quarto <= quantidadeDEQuartos) {
         if (nomedoHotel[quarto - 1].hospede[0] != '\0') {
             nomedoHotel[quarto - 1].hospede[0] = '\0';
-            printf("HÃ³spede removido com sucesso!\n");
+            printf("Hóspede removido com sucesso!\n");
         } else {
-            printf("Quarto vazio. Nenhum hÃ³spede para remover.\n");
+            printf("Quarto vazio. Nenhum hóspede para remover.\n");
         }
     } else {
-        printf("NÃºmero de quarto invÃ¡lido.\n");
+        printf("Número de quarto inválido.\n");
     }
     system("pause");
     system("cls");
@@ -42,15 +42,15 @@ int main() {
     char inserirMaisHospedes;
     do {
         printf("\n===== MENU =====\n");
-        printf("1. Inserir novo hÃ³spede\n");
-        printf("2. Listar hÃ³spedes\n");
-        printf("3. Buscar hÃ³spede\n");
-        printf("4. Editar hÃ³spede\n");
-        printf("5. Remover hÃ³spede\n");
-        printf("6. Mostrar quartos disponÃ­veis\n");
-        printf("7. Salvar em arquivo Lista de HÃ³spedes\n");
+        printf("1. Inserir novo hóspede\n");
+        printf("2. Listar hóspedes\n");
+        printf("3. Buscar hóspede\n");
+        printf("4. Editar hóspede\n");
+        printf("5. Remover hóspede\n");
+        printf("6. Mostrar quartos disponíveis\n");
+        printf("7. Salvar em arquivo Lista de Hóspedes\n");
         printf("0. Sair\n");
-        printf("Digite a opÃ§Ã£o desejada: ");
+        printf("Digite a opção desejada: ");
         scanf("%d", &opcao);
         system("cls");
 
@@ -72,14 +72,14 @@ int main() {
                 break;
             case 7:
                 system("cls");
-                printf("opÃ§Ã£o ainda nao disponivel\n");
+                printf("opção ainda nao disponivel\n");
                 break;
             case 0:
-                printf("Saindo do programa. AtÃ© logo!\n");
+                printf("Saindo do programa. Até logo!\n");
                 system("pause");
                 break;
             default:
-                printf("OpÃ§Ã£o invÃ¡lida. Tente novamente.\n");
+                printf("Opção inválida. Tente novamente.\n");
         }
 
     } while (opcao != 0);
