@@ -5,14 +5,26 @@
 #define quantidadeDEQuartos 30
 
 typedef struct {
-    char hospede[30];
+    char hospede[30];  // Corrigindo a declaração da struct
 } hotel;
 
 void inicializarHotel(hotel nomedoHotel[], int tamanho) {
     for (int i = 0; i < tamanho; i++) {
-        nomedoHotel[i].hospede[0] = '\0';
+        nomedoHotel[i].hospede[0] = '\0';  // Inicializando cada quarto
     }
 }
+void listarHospedes(hotel nomedoHotel[]) {
+    printf("Lista de hóspedes:\n");
+    for (int i = 0; i < 30; i++) {
+        if (nomedoHotel[i].hospede[0] != '\0') {
+            printf("Quarto %d: %s\n", i + 1, nomedoHotel[i].hospede);
+        }
+    }
+    system("pause");
+    system("cls");
+}
+
+
 int main() {
     setlocale(LC_ALL, "Portuguese");
     hotel transilvania[30];
@@ -35,10 +47,12 @@ int main() {
         system("cls");
 
         switch (opcao) {
-            case 1:
-                // Parte Victor
+            //parte victor
+                break;
             case 2:
-            //parte eduardo
+                system("cls");
+                listarHospedes(transilvania);
+                break;
                 break;
             case 3:
             //parte adenilson
