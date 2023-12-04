@@ -35,6 +35,24 @@ void listarHospedes(hotel nomedoHotel[]) {
     system("pause");
     system("cls");
 }
+void buscarHospede(hotel nomedoHotel[]) {
+    char nome[50];
+    printf("Digite o nome do hóspede a ser buscado: ");
+    getchar();
+    fgets(nome, sizeof(nome), stdin);
+    nome[strcspn(nome, "\n")] = '\0';
+
+    for (int i = 0; i < quantidadeDEQuartos; i++) {
+        if (strcmp(nomedoHotel[i].hospede, nome) == 0) {
+            printf("%s está no quarto %d.\n", nome, i + 1);
+            return;
+        }
+    }
+
+    printf("%s não encontrado.\n", nome);
+    system("pause");
+    system("cls");
+}
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -76,7 +94,8 @@ int main() {
                 listarHospedes(transilvania);
                 break;
             case 3:
-            //parte adenilson
+                system("cls");
+                buscarHospede(transilvania);
                 break;
             case 4:
             // parte francisco
