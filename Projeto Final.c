@@ -5,14 +5,35 @@
 #define quantidadeDEQuartos 30
 
 typedef struct {
-    char hospede[30];
+    char hospede[30];  // Corrigindo a declaração da struct
 } hotel;
 
 void inicializarHotel(hotel nomedoHotel[], int tamanho) {
     for (int i = 0; i < tamanho; i++) {
-        nomedoHotel[i].hospede[0] = '\0';
+        nomedoHotel[i].hospede[0] = '\0';  // Inicializando cada quarto
     }
 }
+void editarHospede(hotel nomedoHotel[]) {
+    int numeroDoQuarto;
+    printf("Digite o número do quarto a ser editado: ");
+    scanf("%d", &numeroDoQuarto);
+
+    if (numeroDoQuarto >= 1 && numeroDoQuarto <= quantidadeDEQuartos) {
+        if (nomedoHotel[numeroDoQuarto - 1].hospede[0] != '\0') {
+            printf("Digite o novo nome do hóspede: ");
+            scanf("%s", nomedoHotel[numeroDoQuarto - 1].hospede);
+            printf("Hóspede editado com sucesso!\n");
+        } else {
+            printf("Quarto vazio. Nenhum hóspede para editar.\n");
+        }
+    } else {
+        printf("Número de quarto inválido.\n");
+    }
+    system("pause");
+    system("cls");
+}
+
+
 int main() {
     setlocale(LC_ALL, "Portuguese");
     hotel transilvania[30];
@@ -35,16 +56,15 @@ int main() {
         system("cls");
 
         switch (opcao) {
-            case 1:
-                // Parte Victor
+            //parte victor
             case 2:
             //parte eduardo
-                break;
             case 3:
-            //parte adenilson
+            // parte adenilson
                 break;
             case 4:
-            // parte francisco
+                system("cls");
+                editarHospede(transilvania);
                 break;
             case 5:
             // parte Kelvin
