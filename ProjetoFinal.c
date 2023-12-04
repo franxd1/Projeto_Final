@@ -13,6 +13,18 @@ void inicializarHotel(hotel nomedoHotel[], int tamanho) {
         nomedoHotel[i].hospede[0] = '\0';
     }
 }
+
+void inserirHospede(hotel nomedoHotel[], int numeroQuarto) {
+    if (nomedoHotel[numeroQuarto - 1].hospede[0] == '\0') {
+        printf("Digite o nome do hóspede: ");
+        getchar();
+        fgets(nomedoHotel[numeroQuarto - 1].hospede, sizeof(nomedoHotel[numeroQuarto - 1].hospede), stdin);
+        nomedoHotel[numeroQuarto - 1].hospede[strcspn(nomedoHotel[numeroQuarto - 1].hospede, "\n")] = '\0';
+        printf("Hóspede cadastrado com sucesso!\n");
+    } else {
+        printf("Quarto já ocupado. Escolha outro quarto.\n");
+    }
+}
 int main() {
     setlocale(LC_ALL, "Portuguese");
     hotel transilvania[30];
@@ -36,7 +48,18 @@ int main() {
 
         switch (opcao) {
             case 1:
-                // Parte Victor
+                do{
+                system("cls");
+                printf("Digite o número do quarto: ");
+                int numeroDoQuarto;
+                scanf(" %d", &numeroDoQuarto);
+                inserirHospede(transilvania, numeroDoQuarto);
+                printf("Deseja inserir mais Hóspedes? (S) para Sim e (N) para Não: ");
+                scanf(" %c", &inserirMaisHospedes);
+
+                }while(inserirMaisHospedes != 'N');
+                system("cls");
+                break;
             case 2:
             //parte eduardo
                 break;
