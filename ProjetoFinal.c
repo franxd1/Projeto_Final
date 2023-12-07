@@ -112,6 +112,19 @@ void quartosDisponiveis(hotel nomedoHotel[]) {
     system("pause");
     system("cls");
 }
+void gerartxt(hotel nomedoHotel[]) {
+    FILE *ponteiroarq;
+    ponteiroarq = fopen("C:\\Users\\55619\\Desktop\\te\\ListaDeHospede", "w");
+    for (int i = 0; i < 30; i++) {
+        if (nomedoHotel[i].hospede[0] != '\0') {
+            fprintf(ponteiroarq,"Quarto %d: %s\n", i + 1, nomedoHotel[i].hospede);
+        }
+    }
+    fclose(ponteiroarq);
+    printf("Arquivo Gerado com sucessos\n");
+    system("pause");
+  
+}
 int main() {
     setlocale(LC_ALL, "Portuguese");
     hotel transilvania[30];
@@ -120,15 +133,17 @@ int main() {
     int opcao;
     char inserirMaisHospedes;
     do {
-        printf("\n===== MENU =====\n");
-        printf("1. Inserir novo hóspede\n");
-        printf("2. Listar hóspedes\n");
-        printf("3. Buscar hóspede\n");
-        printf("4. Editar hóspede\n");
-        printf("5. Remover hóspede\n");
-        printf("6. Mostrar quartos disponíveis\n");
-        printf("7. Salvar em arquivo Lista de Hóspedes\n");
-        printf("0. Sair\n");
+        printf("\n===================== MENU ==============================\n");
+        printf("||_______1. Inserir novo hóspede______________________||\n");
+        printf("||_______2. Listar hóspedes___________________________||\n");
+        printf("||_______3. Buscar hóspede____________________________||\n");
+        printf("||_______4. Editar hóspede____________________________||\n");
+        printf("||_______5. Remover hóspede___________________________||\n");
+        printf("||_______6. Mostrar quartos disponíveis_______________||\n");
+        printf("||_______7. Salvar em arquivo Lista de Hóspedes_______||\n");
+        printf("||_______0. Sair_______________________________________||\n");
+        printf("=========================================================\n");
+        printf("\n");
         printf("Digite a opção desejada: ");
         scanf("%d", &opcao);
         system("cls");
@@ -169,7 +184,8 @@ int main() {
                 break;
             case 7:
                 system("cls");
-                printf("opção ainda nao disponivel\n");
+                gerartxt(transilvania);
+                system("cls");
                 break;
             case 0:
                 printf("Saindo do programa. Até logo!\n");
