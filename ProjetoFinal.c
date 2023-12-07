@@ -127,8 +127,8 @@ void gerartxt(hotel nomedoHotel[]) {
 }
 int main() {
     setlocale(LC_ALL, "Portuguese");
-    hotel transilvania[30];
-    inicializarHotel(transilvania, 30);
+    hotel transilvania[quantidadeDEQuartos];
+    inicializarHotel(transilvania, quantidadeDEQuartos);
 
     int opcao;
     char inserirMaisHospedes;
