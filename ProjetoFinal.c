@@ -133,7 +133,7 @@ int main() {
     int opcao;
     char inserirMaisHospedes;
     do {
-        printf("\n===================== MENU ==============================\n");
+        printf("\n============= Hotel Transilvânia========================\n");
         printf("||_______1. Inserir novo hóspede______________________||\n");
         printf("||_______2. Listar hóspedes___________________________||\n");
         printf("||_______3. Buscar hóspede____________________________||\n");
